@@ -26,9 +26,13 @@ git config --global user.email "%GIT_EMAIL%"
 git add .
 git commit -m "Primer commit del proyecto"
 
-:: --- Configurar rama y remoto ---
+:: --- Configurar rama y remoto (manejar si ya existe) ---
 git branch -M main
+git remote remove origin 2>nul
 git remote add origin %GITHUB_REPO%
+
+:: --- Sincronizar si hay cambios en GitHub ---
+git pull origin main --allow-unrelated-histories
 
 :: --- Subir a GitHub ---
 git push -u origin main
@@ -38,5 +42,4 @@ IF ERRORLEVEL 1 (
 ) ELSE (
     echo ✅ Proyecto subido exitosamente a GitHub.
 )
-
 pause
