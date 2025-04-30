@@ -1,3 +1,0 @@
-﻿# TAREA-1---ALGORITMO
-# Estudiante: Jose Elias Balladares Maridueña
-# Curso: B1
