@@ -31,15 +31,12 @@ git branch -M main
 git remote remove origin 2>nul
 git remote add origin %GITHUB_REPO%
 
-:: --- Sincronizar si hay cambios en GitHub ---
-git pull origin main --allow-unrelated-histories
-
-:: --- Subir a GitHub ---
-git push -u origin main
+:: --- Forzar el push (si quieres reemplazar lo que ya está en GitHub) ---
+git push -u origin main --force
 
 IF ERRORLEVEL 1 (
     echo ❌ Hubo un error al hacer push a GitHub.
 ) ELSE (
-    echo ✅ Proyecto subido exitosamente a GitHub.
+    echo ✅ Proyecto subido exitosamente a GitHub (se forzó el contenido remoto).
 )
 pause
